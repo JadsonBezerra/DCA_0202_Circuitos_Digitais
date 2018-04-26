@@ -1,0 +1,735 @@
+TimeQuest Timing Analyzer report for Cofre
+Thu Apr 26 16:35:55 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'cs'
+ 14. Slow Model Minimum Pulse Width: 'clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Fast Model Setup Summary
+ 20. Fast Model Hold Summary
+ 21. Fast Model Recovery Summary
+ 22. Fast Model Removal Summary
+ 23. Fast Model Minimum Pulse Width Summary
+ 24. Fast Model Setup: 'clk'
+ 25. Fast Model Hold: 'clk'
+ 26. Fast Model Minimum Pulse Width: 'cs'
+ 27. Fast Model Minimum Pulse Width: 'clk'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Multicorner Timing Analysis Summary
+ 33. Setup Times
+ 34. Hold Times
+ 35. Clock to Output Times
+ 36. Minimum Clock to Output Times
+ 37. Setup Transfers
+ 38. Hold Transfers
+ 39. Report TCCS
+ 40. Report RSKM
+ 41. Unconstrained Paths
+ 42. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; Cofre                                                             ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C5F256C6                                                       ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
+; cs         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { cs }  ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                    ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; 1610.31 MHz ; 450.05 MHz      ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -1.136 ; -1.136        ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.391 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; cs    ; -1.380 ; -9.380                ;
+; clk   ; -1.222 ; -2.222                ;
++-------+--------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                            ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -1.136 ; ffd:FFD2|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.866      ;
+; -1.102 ; ffd:FFD0|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.832      ;
+; -1.003 ; ffd:FFD3|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.733      ;
+; -0.970 ; ffd:FFD7|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.700      ;
+; -0.969 ; ffd:FFD1|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.699      ;
+; -0.851 ; ffd:FFD4|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.581      ;
+; -0.847 ; ffd:FFD6|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.577      ;
+; -0.722 ; ffd:FFD5|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.306     ; 1.452      ;
+; 0.379  ; ffd:FFD8|QSignal ; ffd:FFD8|QSignal ; clk          ; clk         ; 1.000        ; 0.000      ; 0.657      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                            ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; ffd:FFD8|QSignal ; ffd:FFD8|QSignal ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 1.492 ; ffd:FFD5|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.452      ;
+; 1.617 ; ffd:FFD6|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.577      ;
+; 1.621 ; ffd:FFD4|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.581      ;
+; 1.739 ; ffd:FFD1|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.699      ;
+; 1.740 ; ffd:FFD7|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.700      ;
+; 1.773 ; ffd:FFD3|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.733      ;
+; 1.872 ; ffd:FFD0|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.832      ;
+; 1.906 ; ffd:FFD2|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.306     ; 1.866      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'cs'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target              ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; cs    ; Rise       ; cs                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD0|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD0|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD1|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD1|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD2|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD2|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD3|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD3|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD4|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD4|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD5|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD5|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD6|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD6|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD7|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD7|QSignal    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD0|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD0|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD1|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD1|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD2|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD2|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD3|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD3|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD4|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD4|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD5|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD5|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD6|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD6|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD7|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD7|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs~clkctrl|outclk   ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                             ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; clk   ; Rise       ; clk              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; ffd:FFD8|QSignal ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; ffd:FFD8|QSignal ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FFD8|QSignal|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FFD8|QSignal|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout      ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; E           ; clk        ; 0.749 ; 0.749 ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; 5.334 ; 5.334 ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; 4.785 ; 4.785 ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; 5.046 ; 5.046 ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; 5.075 ; 5.075 ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; 5.334 ; 5.334 ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; 4.481 ; 4.481 ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; 4.848 ; 4.848 ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; 1.780 ; 1.780 ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; 1.784 ; 1.784 ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; 3.784 ; 3.784 ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; 3.151 ; 3.151 ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; 3.567 ; 3.567 ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; 3.444 ; 3.444 ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; 3.784 ; 3.784 ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; 3.143 ; 3.143 ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; 3.578 ; 3.578 ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; 0.423 ; 0.423 ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; 0.278 ; 0.278 ; Fall       ; cs              ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; E           ; clk        ; -0.519 ; -0.519 ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; -1.550 ; -1.550 ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; -4.555 ; -4.555 ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; -4.816 ; -4.816 ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; -4.845 ; -4.845 ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; -5.104 ; -5.104 ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; -4.251 ; -4.251 ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; -4.618 ; -4.618 ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; -1.550 ; -1.550 ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; -1.554 ; -1.554 ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; -0.048 ; -0.048 ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; -2.921 ; -2.921 ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; -3.337 ; -3.337 ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; -3.214 ; -3.214 ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; -3.554 ; -3.554 ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; -2.913 ; -2.913 ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; -3.348 ; -3.348 ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; -0.193 ; -0.193 ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; -0.048 ; -0.048 ; Fall       ; cs              ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
+; bloq      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
+; bloq      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -0.128 ; -0.128        ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; cs    ; -1.380 ; -9.380                ;
+; clk   ; -1.222 ; -2.222                ;
++-------+--------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                            ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; -0.128 ; ffd:FFD2|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.861      ;
+; -0.114 ; ffd:FFD0|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.847      ;
+; -0.102 ; ffd:FFD3|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.835      ;
+; -0.087 ; ffd:FFD1|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.820      ;
+; -0.058 ; ffd:FFD7|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.791      ;
+; -0.036 ; ffd:FFD6|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.769      ;
+; 0.010  ; ffd:FFD4|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.723      ;
+; 0.034  ; ffd:FFD5|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 1.000        ; -0.299     ; 0.699      ;
+; 0.665  ; ffd:FFD8|QSignal ; ffd:FFD8|QSignal ; clk          ; clk         ; 1.000        ; 0.000      ; 0.367      ;
++--------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                            ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node        ; To Node          ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; ffd:FFD8|QSignal ; ffd:FFD8|QSignal ; clk          ; clk         ; 0.000        ; 0.000      ; 0.367      ;
+; 0.846 ; ffd:FFD5|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.699      ;
+; 0.870 ; ffd:FFD4|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.723      ;
+; 0.916 ; ffd:FFD6|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.769      ;
+; 0.938 ; ffd:FFD7|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.791      ;
+; 0.967 ; ffd:FFD1|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.820      ;
+; 0.982 ; ffd:FFD3|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.835      ;
+; 0.994 ; ffd:FFD0|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.847      ;
+; 1.008 ; ffd:FFD2|QSignal ; ffd:FFD8|QSignal ; cs           ; clk         ; 0.000        ; -0.299     ; 0.861      ;
++-------+------------------+------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'cs'                                                                 ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target              ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; cs    ; Rise       ; cs                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD0|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD0|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD1|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD1|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD2|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD2|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD3|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD3|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD4|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD4|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD5|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD5|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD6|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD6|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; cs    ; Fall       ; ffd:FFD7|QSignal    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; cs    ; Fall       ; ffd:FFD7|QSignal    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD0|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD0|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD1|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD1|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD2|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD2|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD3|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD3|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD4|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD4|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD5|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD5|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD6|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD6|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; FFD7|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; FFD7|QSignal|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; cs    ; Rise       ; cs~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; cs    ; Rise       ; cs~clkctrl|outclk   ;
++--------+--------------+----------------+------------------+-------+------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                             ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; clk   ; Rise       ; clk              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Fall       ; ffd:FFD8|QSignal ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Fall       ; ffd:FFD8|QSignal ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; FFD8|QSignal|clk ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; FFD8|QSignal|clk ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout      ;
++--------+--------------+----------------+------------------+-------+------------+------------------+
+
+
++---------------------------------------------------------------------------+
+; Setup Times                                                               ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; E           ; clk        ; 0.276  ; 0.276  ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; 2.913  ; 2.913  ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; 2.700  ; 2.700  ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; 2.802  ; 2.802  ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; 2.828  ; 2.828  ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; 2.913  ; 2.913  ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; 2.546  ; 2.546  ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; 2.696  ; 2.696  ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; 0.734  ; 0.734  ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; 0.744  ; 0.744  ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; 2.102  ; 2.102  ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; 1.807  ; 1.807  ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; 2.014  ; 2.014  ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; 1.938  ; 1.938  ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; 2.102  ; 2.102  ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; 1.799  ; 1.799  ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; 2.021  ; 2.021  ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; -0.003 ; -0.003 ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; -0.094 ; -0.094 ; Fall       ; cs              ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; E           ; clk        ; -0.156 ; -0.156 ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; -0.614 ; -0.614 ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; -2.580 ; -2.580 ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; -2.682 ; -2.682 ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; -2.708 ; -2.708 ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; -2.793 ; -2.793 ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; -2.426 ; -2.426 ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; -2.576 ; -2.576 ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; -0.614 ; -0.614 ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; -0.624 ; -0.624 ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; 0.214  ; 0.214  ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; -1.687 ; -1.687 ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; -1.894 ; -1.894 ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; -1.818 ; -1.818 ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; -1.982 ; -1.982 ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; -1.679 ; -1.679 ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; -1.901 ; -1.901 ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; 0.123  ; 0.123  ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; 0.214  ; 0.214  ; Fall       ; cs              ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
+; bloq      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
+; bloq      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -1.136 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+;  clk             ; -1.136 ; 0.215 ; N/A      ; N/A     ; -1.222              ;
+;  cs              ; N/A    ; N/A   ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -1.136 ; 0.0   ; 0.0      ; 0.0     ; -11.602             ;
+;  clk             ; -1.136 ; 0.000 ; N/A      ; N/A     ; -2.222              ;
+;  cs              ; N/A    ; N/A   ; N/A      ; N/A     ; -9.380              ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; E           ; clk        ; 0.749 ; 0.749 ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; 5.334 ; 5.334 ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; 4.785 ; 4.785 ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; 5.046 ; 5.046 ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; 5.075 ; 5.075 ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; 5.334 ; 5.334 ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; 4.481 ; 4.481 ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; 4.848 ; 4.848 ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; 1.780 ; 1.780 ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; 1.784 ; 1.784 ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; 3.784 ; 3.784 ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; 3.151 ; 3.151 ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; 3.567 ; 3.567 ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; 3.444 ; 3.444 ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; 3.784 ; 3.784 ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; 3.143 ; 3.143 ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; 3.578 ; 3.578 ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; 0.423 ; 0.423 ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; 0.278 ; 0.278 ; Fall       ; cs              ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; E           ; clk        ; -0.156 ; -0.156 ; Fall       ; clk             ;
+; entrada[*]  ; clk        ; -0.614 ; -0.614 ; Fall       ; clk             ;
+;  entrada[0] ; clk        ; -2.580 ; -2.580 ; Fall       ; clk             ;
+;  entrada[1] ; clk        ; -2.682 ; -2.682 ; Fall       ; clk             ;
+;  entrada[2] ; clk        ; -2.708 ; -2.708 ; Fall       ; clk             ;
+;  entrada[3] ; clk        ; -2.793 ; -2.793 ; Fall       ; clk             ;
+;  entrada[4] ; clk        ; -2.426 ; -2.426 ; Fall       ; clk             ;
+;  entrada[5] ; clk        ; -2.576 ; -2.576 ; Fall       ; clk             ;
+;  entrada[6] ; clk        ; -0.614 ; -0.614 ; Fall       ; clk             ;
+;  entrada[7] ; clk        ; -0.624 ; -0.624 ; Fall       ; clk             ;
+; entrada[*]  ; cs         ; 0.214  ; 0.214  ; Fall       ; cs              ;
+;  entrada[0] ; cs         ; -1.687 ; -1.687 ; Fall       ; cs              ;
+;  entrada[1] ; cs         ; -1.894 ; -1.894 ; Fall       ; cs              ;
+;  entrada[2] ; cs         ; -1.818 ; -1.818 ; Fall       ; cs              ;
+;  entrada[3] ; cs         ; -1.982 ; -1.982 ; Fall       ; cs              ;
+;  entrada[4] ; cs         ; -1.679 ; -1.679 ; Fall       ; cs              ;
+;  entrada[5] ; cs         ; -1.901 ; -1.901 ; Fall       ; cs              ;
+;  entrada[6] ; cs         ; 0.123  ; 0.123  ; Fall       ; cs              ;
+;  entrada[7] ; cs         ; 0.214  ; 0.214  ; Fall       ; cs              ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
+; bloq      ; clk        ; 5.673 ; 5.673 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; abre      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
+; bloq      ; clk        ; 3.030 ; 3.030 ; Fall       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 0        ; 0        ; 0        ; 1        ;
+; cs         ; clk      ; 0        ; 0        ; 0        ; 8        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 0        ; 0        ; 0        ; 1        ;
+; cs         ; clk      ; 0        ; 0        ; 0        ; 8        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 9     ; 9    ;
+; Unconstrained Input Port Paths  ; 17    ; 17   ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Apr 26 16:35:53 2018
+Info: Command: quartus_sta Cofre -c Cofre
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Cofre.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name cs cs
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.136
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.136        -1.136 clk 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -9.380 cs 
+    Info (332119):    -1.222        -2.222 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.128
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.128        -0.128 clk 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -9.380 cs 
+    Info (332119):    -1.222        -2.222 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 463 megabytes
+    Info: Processing ended: Thu Apr 26 16:35:55 2018
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

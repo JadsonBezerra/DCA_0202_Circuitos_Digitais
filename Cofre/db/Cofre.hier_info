@@ -1,0 +1,105 @@
+|Cofre
+entrada[0] => COMP[0].IN1
+entrada[0] => FFD:FFD0.D
+entrada[1] => COMP[1].IN1
+entrada[1] => FFD:FFD1.D
+entrada[2] => COMP[2].IN1
+entrada[2] => FFD:FFD2.D
+entrada[3] => COMP[3].IN1
+entrada[3] => FFD:FFD3.D
+entrada[4] => COMP[4].IN1
+entrada[4] => FFD:FFD4.D
+entrada[5] => COMP[5].IN1
+entrada[5] => FFD:FFD5.D
+entrada[6] => COMP[6].IN1
+entrada[6] => FFD:FFD6.D
+entrada[7] => COMP[7].IN1
+entrada[7] => FFD:FFD7.D
+reset => ~NO_FANOUT~
+cs => FFD:FFD0.clock
+cs => FFD:FFD1.clock
+cs => FFD:FFD2.clock
+cs => FFD:FFD3.clock
+cs => FFD:FFD4.clock
+cs => FFD:FFD5.clock
+cs => FFD:FFD6.clock
+cs => FFD:FFD7.clock
+clk => FFD:FFD8.clock
+E => FFD:FFD8.E
+bloq <= FFD:FFD8.Q
+abre <= FFD:FFD8.Q
+modo <= <VCC>
+
+
+|Cofre|ffd:FFD0
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD1
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD2
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD3
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD4
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD5
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD6
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD7
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Cofre|ffd:FFD8
+D => QSignal.DATAIN
+E => QSignal.ENA
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+Qbar <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
