@@ -1,0 +1,101 @@
+|cofre
+entrada[0] => REG8:REG80.entrada[0]
+entrada[0] => COMP8:COMP80.entrada[0]
+entrada[1] => REG8:REG80.entrada[1]
+entrada[1] => COMP8:COMP80.entrada[1]
+entrada[2] => REG8:REG80.entrada[2]
+entrada[2] => COMP8:COMP80.entrada[2]
+entrada[3] => REG8:REG80.entrada[3]
+entrada[3] => COMP8:COMP80.entrada[3]
+entrada[4] => REG8:REG80.entrada[4]
+entrada[4] => COMP8:COMP80.entrada[4]
+entrada[5] => REG8:REG80.entrada[5]
+entrada[5] => COMP8:COMP80.entrada[5]
+entrada[6] => REG8:REG80.entrada[6]
+entrada[6] => COMP8:COMP80.entrada[6]
+entrada[7] => REG8:REG80.entrada[7]
+entrada[7] => COMP8:COMP80.entrada[7]
+rst => Q0.IN1
+rst => Q0.IN1
+rst => Q0.IN1
+rst => Q1.IN1
+rst => Q1.IN1
+rst => Q0.IN1
+rst => Q0.IN1
+clk => Q0.IN1
+clk => Q0.IN1
+clk => Q0.IN1
+clk => Q1.IN1
+clk => COMP8:COMP80.clock
+clock2 => FFD:FFD0.clock
+clock2 => FFD:FFD1.clock
+cs => Q0.IN1
+cs => Q0.IN1
+cs => Q0.IN1
+cs => Q0.IN1
+cs => Q1.IN1
+cs => REG8:REG80.clock
+modo <= modo.DB_MAX_OUTPUT_PORT_TYPE
+abre <= abre.DB_MAX_OUTPUT_PORT_TYPE
+bloqueio <= bloqueio.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cofre|reg8:REG80
+entrada[0] => Q[0].DATAIN
+entrada[1] => Q[1].DATAIN
+entrada[2] => Q[2].DATAIN
+entrada[3] => Q[3].DATAIN
+entrada[4] => Q[4].DATAIN
+entrada[5] => Q[5].DATAIN
+entrada[6] => Q[6].DATAIN
+entrada[7] => Q[7].DATAIN
+clock => ~NO_FANOUT~
+Q[0] <= entrada[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= entrada[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= entrada[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= entrada[3].DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= entrada[4].DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= entrada[5].DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= entrada[6].DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= entrada[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cofre|comp8:COMP80
+SenhaSalva[0] => COMP[0].IN0
+SenhaSalva[1] => COMP[1].IN0
+SenhaSalva[2] => COMP[2].IN0
+SenhaSalva[3] => COMP[3].IN0
+SenhaSalva[4] => COMP[4].IN0
+SenhaSalva[5] => COMP[5].IN0
+SenhaSalva[6] => COMP[6].IN0
+SenhaSalva[7] => COMP[7].IN0
+entrada[0] => COMP[0].IN1
+entrada[1] => COMP[1].IN1
+entrada[2] => COMP[2].IN1
+entrada[3] => COMP[3].IN1
+entrada[4] => COMP[4].IN1
+entrada[5] => COMP[5].IN1
+entrada[6] => COMP[6].IN1
+entrada[7] => COMP[7].IN1
+clock => FFD:FFD0.clock
+Q <= FFD:FFD0.Q
+
+
+|cofre|comp8:COMP80|ffd:FFD0
+D => QSignal.DATAIN
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cofre|ffd:FFD0
+D => QSignal.DATAIN
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cofre|ffd:FFD1
+D => QSignal.DATAIN
+clock => QSignal.CLK
+Q <= QSignal.DB_MAX_OUTPUT_PORT_TYPE
+
+

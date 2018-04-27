@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity cofre is
+port (
+reset,clock,cs,comparador: in std_logic;
+modo,abre,bloqueio: out std_logic;
+);
+
+architecture cofre of cofre is
+begin
+	signal D0, D1: std_logic;
+	D0<=0;
+	D1<=0;
+	
+end cofre;

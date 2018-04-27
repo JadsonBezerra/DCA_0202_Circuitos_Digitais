@@ -1,0 +1,281 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "04/19/2018 18:57:33"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    cofre
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module cofre_vlg_sample_tst(
+	clock,
+	comparador,
+	cs,
+	reset,
+	sampler_tx
+);
+input  clock;
+input  comparador;
+input  cs;
+input  reset;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(clock or comparador or cs or reset)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module cofre_vlg_check_tst (
+	abre,
+	bloqueio,
+	modo,
+	sampler_rx
+);
+input  abre;
+input  bloqueio;
+input  modo;
+input sampler_rx;
+
+reg  abre_expected;
+reg  bloqueio_expected;
+reg  modo_expected;
+
+reg  abre_prev;
+reg  bloqueio_prev;
+reg  modo_prev;
+
+reg  abre_expected_prev;
+reg  bloqueio_expected_prev;
+reg  modo_expected_prev;
+
+reg  last_abre_exp;
+reg  last_bloqueio_exp;
+reg  last_modo_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:3] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 3'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	abre_prev = abre;
+	bloqueio_prev = bloqueio;
+	modo_prev = modo;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	abre_expected_prev = abre_expected;
+	bloqueio_expected_prev = bloqueio_expected;
+	modo_expected_prev = modo_expected;
+end
+
+
+
+// expected abre
+initial
+begin
+	abre_expected = 1'bX;
+end 
+
+// expected bloqueio
+initial
+begin
+	bloqueio_expected = 1'bX;
+end 
+
+// expected modo
+initial
+begin
+	modo_expected = 1'bX;
+end 
+// generate trigger
+always @(abre_expected or abre or bloqueio_expected or bloqueio or modo_expected or modo)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected abre = %b | expected bloqueio = %b | expected modo = %b | ",abre_expected_prev,bloqueio_expected_prev,modo_expected_prev);
+	$display("| real abre = %b | real bloqueio = %b | real modo = %b | ",abre_prev,bloqueio_prev,modo_prev);
+`endif
+	if (
+		( abre_expected_prev !== 1'bx ) && ( abre_prev !== abre_expected_prev )
+		&& ((abre_expected_prev !== last_abre_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port abre :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", abre_expected_prev);
+		$display ("     Real value = %b", abre_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_abre_exp = abre_expected_prev;
+	end
+	if (
+		( bloqueio_expected_prev !== 1'bx ) && ( bloqueio_prev !== bloqueio_expected_prev )
+		&& ((bloqueio_expected_prev !== last_bloqueio_exp) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port bloqueio :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", bloqueio_expected_prev);
+		$display ("     Real value = %b", bloqueio_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_bloqueio_exp = bloqueio_expected_prev;
+	end
+	if (
+		( modo_expected_prev !== 1'bx ) && ( modo_prev !== modo_expected_prev )
+		&& ((modo_expected_prev !== last_modo_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port modo :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", modo_expected_prev);
+		$display ("     Real value = %b", modo_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_modo_exp = modo_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module cofre_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg clock;
+reg comparador;
+reg cs;
+reg reset;
+// wires                                               
+wire abre;
+wire bloqueio;
+wire modo;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+cofre i1 (
+// port map - connection between master ports and signals/registers   
+	.abre(abre),
+	.bloqueio(bloqueio),
+	.clock(clock),
+	.comparador(comparador),
+	.cs(cs),
+	.modo(modo),
+	.reset(reset)
+);
+
+// clock
+always
+begin
+	clock = 1'b0;
+	clock = #50000 1'b1;
+	#50000;
+end 
+
+// comparador
+initial
+begin
+	comparador = 1'b1;
+end 
+
+// cs
+initial
+begin
+	cs = 1'b0;
+	cs = #200000 1'b1;
+	cs = #510000 1'b0;
+end 
+
+// reset
+initial
+begin
+	reset = 1'b0;
+end 
+
+cofre_vlg_sample_tst tb_sample (
+	.clock(clock),
+	.comparador(comparador),
+	.cs(cs),
+	.reset(reset),
+	.sampler_tx(sampler)
+);
+
+cofre_vlg_check_tst tb_out(
+	.abre(abre),
+	.bloqueio(bloqueio),
+	.modo(modo),
+	.sampler_rx(sampler)
+);
+endmodule
+

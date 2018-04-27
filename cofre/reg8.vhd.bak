@@ -1,0 +1,36 @@
+ibrary ieee;
+use ieee.std_logic_1164.all;
+
+entity reg8 is
+port(entrada: in std_logic_vector (7 downto 0);
+     clock: in std_logic;
+	  Q: out std_logic_vector (7 downto 0);
+	  end ffd;
+	  
+	  
+architecture reg8 of reg8 is
+signal QSignal: std_logic_vector(7 downto 0);
+begin
+
+     process(clock)	  
+	  begin
+	  if (clock'event and clock = '1') then 
+	       QSignal(0)<=entrada(0);
+			 QSignal(1)<=entrada(1);
+			 QSignal(2)<=entrada(2);
+			 QSignal(3)<=entrada(3);
+			 QSignal(4)<=entrada(4);
+			 QSignal(5)<=entrada(5);
+			 QSignal(6)<=entrada(6);
+			 QSignal(7)<=entrada(7);
+	  end if;
+	 end process;
+	 Q(0)<=entrada(0);
+	 Q(1)<=entrada(1);
+	 Q(2)<=entrada(2);
+	 Q(3)<=entrada(3);
+	 Q(4)<=entrada(4);
+	 Q(5)<=entrada(5);
+	 Q(6)<=entrada(6);
+	 Q(7)<=entrada(7);
+ end reg8;
